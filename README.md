@@ -140,6 +140,7 @@ Response:
     "updated_at": "2024-01-01T00:00:00.000000Z"
 }
 ```
+![alt text](image-7.png)
 
 #### Create User
 ```http
@@ -169,6 +170,7 @@ Request body:
     "membership_status": "vip"
 }
 ```
+![alt text](image-8.png)
 
 #### Delete User
 ```http
@@ -312,9 +314,10 @@ export default UserManagement;
 ![alt text](image-4.png)
 
 # 2 Error Handling Get User By ID
-
-The API returns appropriate HTTP status codes:
+- ID tidak tersedia
 ![alt text](image-5.png)
+The API returns appropriate HTTP status codes:
+
 
 
 - 200: Success
