@@ -311,7 +311,11 @@ export default UserManagement;
 - password kurang dari 8 karakter
 ![alt text](image-4.png)
 
+# 2 Error Handling Get User By ID
+
 The API returns appropriate HTTP status codes:
+![alt text](image-5.png)
+
 
 - 200: Success
 - 201: Created
