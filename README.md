@@ -11,38 +11,7 @@ Ini adalah RESTful API untuk manajemen pengguna yang dibangun dengan Laravel dan
 - Pagination untuk daftar pengguna
 - Rute dilindungi menggunakan Laravel Sanctum
 
-## Installation & Setup
 
-1. Clone the repository:
-```bash
-git clone 
-cd user-management-api
-```
-
-2. Install dependencies:
-```bash
-composer install
-```
-
-3. Copy .env.example to .env and configure your database:
-```bash
-cp .env.example .env
-```
-
-4. Generate application key:
-```bash
-php artisan key:generate
-```
-
-5. Run migrations:
-```bash
-php artisan migrate
-```
-
-6. Start the development server:
-```bash
-php artisan serve
-```
 
 ## API Endpoints
 
@@ -176,6 +145,7 @@ Request body:
 ```http
 DELETE /api/users/{id}
 ```
+![alt text](image-12.png)
 
 ## Frontend Implementation Example
 
@@ -316,9 +286,18 @@ export default UserManagement;
 # 2 Error Handling Get User By ID
 - ID tidak tersedia
 ![alt text](image-5.png)
+
+# 3 Error Handling Update User
+- ID Not Found
+![alt text](image-10.png)
+- Name kurang dari 3 karakter
+![alt text](image-11.png)
+
+# 4 Error Handling Delete User ID Not Found
+![alt text](image-9.png)
+
+
 The API returns appropriate HTTP status codes:
-
-
 
 - 200: Success
 - 201: Created
@@ -337,6 +316,49 @@ Error responses include a message explaining what went wrong:
     }
 }
 ```
+
+## Installation & Setup
+
+1. Clone the repository:
+```bash
+git clone https://github.com/siihasann/api-datatech-crud.git
+
+cd user-management-api
+```
+
+2. Install dependencies:
+```bash
+composer install
+```
+
+3. Copy .env.example to .env and configure your database:
+```bash
+cp .env.example .env
+```
+
+4. Generate application key:
+```bash
+php artisan key:generate
+```
+
+5. Run migrations:
+```bash
+php artisan migrate
+```
+
+6. Start the development server:
+```bash
+php artisan serve
+```
+
+## Dependency
+
+- PHP >= 8.0
+- Laravel Framework >= 9.0
+- Livewire
+- Tailwind CSS
+- Laravel Sanctum
+- Laravel Breze
 
 ## Security Considerations
 

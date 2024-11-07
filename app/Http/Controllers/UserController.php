@@ -98,7 +98,7 @@ class UserController extends Controller
             $user = User::findOrFail($id);
 
             $validatedData = $request->validate([
-                'name' => 'sometimes|required|string|max:255',
+                'name' => 'sometimes|required|string|min:3',
                 'email' => 'sometimes|required|email|unique:users,email,' . $user->id . '|max:255',
                 'password' => 'sometimes|required|string|min:8',
                 'age' => 'sometimes|required|integer|min:0',
@@ -143,32 +143,35 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        try {
-            $user = User::findOrFail($id);
-            $user->delete();
-
-            return response()->json([
-                'success' => true,
-                'message' => 'User deleted successfully',
-            ], 204);
-        } catch (ModelNotFoundException $e) {
-            return response()->json([
-                'success' => false,
-                'message' => "User with ID $id not found",
-            ], 404);
-        } catch (QueryException $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Database error occurred while deleting user',
-                'error' => $e->getMessage(),
-            ], 500);
-        } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'An error occurred while deleting the user',
-                'error' => $e->getMessage(),
-            ], 500);
-        }
+{
+    try {
+        $user = User::findOrFail($id);
+        $user->delete();
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'User deleted successfully'
+        ], 200); 
+        
+    } catch (ModelNotFoundException $e) {
+        return response()->json([
+            'success' => false,
+            'message' => "User with ID $id not found"
+        ], 404);
+        
+    } catch (QueryException $e) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Database error occurred while deleting user',
+            'error' => $e->getMessage()
+        ], 500);
+        
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'message' => 'An error occurred while deleting the user',
+            'error' => $e->getMessage()
+        ], 500);
     }
+}
 }
