@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+
 
 class UserController extends Controller
 {
@@ -26,16 +28,41 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users|max:255',
+            'email' => 'required|email|unique:users,email|max:255',
             'password' => 'required|string|min:8',
-            'age' => 'required|integer|min:0',
-            'membership_status' => 'required|in:free,premium,vip',
+            'age' => 'nullable|integer|min:0',
+            'membership_status' => 'nullable|in:free,premium,vip',
         ]);
-
-        $user = User::create($validated);
-        return response()->json($user, 201);
+    
+        try {
+            // Encrypt the password
+            $validatedData['password'] = bcrypt($validatedData['password']);
+    
+            // Create the new user
+            $user = User::create($validatedData);
+    
+            return response()->json([
+                'success' => true,
+                'message' => 'User created successfully',
+                'data' => $user
+            ], 201);
+        } catch (ModelNotFoundException $e) {
+            // Handle database errors
+            return response()->json([
+                'success' => false,
+                'message' => 'Database error occurred while creating user',
+                'error' => $e->getMessage(),
+            ], 500);
+        } catch (\Exception $e) {
+            // Handle general errors
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred while creating the user',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
     }
 
     /**

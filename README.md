@@ -122,6 +122,7 @@ Response:
     "total": 1
 }
 ```
+![alt text](image.png)
 
 #### Get Single User
 ```http
@@ -154,6 +155,7 @@ Request body:
     "membership_status": "premium"
 }
 ```
+![alt text](image-1.png)
 
 #### Update User
 ```http
@@ -298,6 +300,16 @@ export default UserManagement;
 ```
 
 ## Error Handling
+
+# 1 Error Handling Create User
+- Email tidak sesuai
+![alt text](image-2.png)
+
+- User dengan email sama sudah ada
+![alt text](image-3.png)
+
+- password kurang dari 8 karakter
+![alt text](image-4.png)
 
 The API returns appropriate HTTP status codes:
 
