@@ -114,7 +114,7 @@ Response:
     "total": 1
 }
 ```
-![alt text](image.png)
+![alt text](assets-documentation/image.png)
 
 #### Get Single User
 ```http
@@ -132,7 +132,7 @@ Response:
     "updated_at": "2024-01-01T00:00:00.000000Z"
 }
 ```
-![alt text](image-7.png)
+![alt text](imassets-documentation/age-7.png)
 
 #### Create User
 ```http
@@ -148,7 +148,7 @@ Request body:
     "membership_status": "premium"
 }
 ```
-![alt text](image-1.png)
+![alt text](imassets-documentation/age-1.png)
 
 #### Update User
 ```http
@@ -162,13 +162,13 @@ Request body:
     "membership_status": "vip"
 }
 ```
-![alt text](image-8.png)
+![alt text](imassets-documentation/age-8.png)
 
 #### Delete User
 ```http
 DELETE /api/users/{id}
 ```
-![alt text](image-12.png)
+![alt text](imaassets-documentation/ge-12.png)
 
 ## Frontend Implementation Example
 
@@ -298,26 +298,26 @@ export default UserManagement;
 
 # 1 Error Handling Create User
 - Email tidak sesuai
-![alt text](image-2.png)
+![alt text](imassets-documentation/age-2.png)
 
 - User dengan email sama sudah ada
-![alt text](image-3.png)
+![alt text](imassets-documentation/age-3.png)
 
 - password kurang dari 8 karakter
-![alt text](image-4.png)
+![alt text](imassets-documentation/age-4.png)
 
 # 2 Error Handling Get User By ID
 - ID tidak tersedia
-![alt text](image-5.png)
+![alt text](imassets-documentation/age-5.png)
 
 # 3 Error Handling Update User
 - ID Not Found
-![alt text](image-10.png)
+![alt text](imaassets-documentation/ge-10.png)
 - Name kurang dari 3 karakter
-![alt text](image-11.png)
+![alt text](imaassets-documentation/ge-11.png)
 
 # 4 Error Handling Delete User ID Not Found
-![alt text](image-9.png)
+![alt text](imassets-documentation/age-9.png)
 
 
 The API returns appropriate HTTP status codes:
