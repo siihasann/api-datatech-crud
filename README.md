@@ -1,5 +1,27 @@
 # User Management API Documentation
 
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [API Endpoints](#api-endpoints)
+  - [Authentication](#authentication)
+    - [Register User](#register-user)
+    - [Login User](#login-user)
+  - [User Management](#user-management)
+    - [Get All Users](#get-all-users)
+    - [Get Single User](#get-single-user)
+    - [Create User](#create-user)
+    - [Update User](#update-user)
+    - [Delete User](#delete-user)
+- [Frontend Implementation](#frontend-implementation-example)
+  - [UserService.js](#userservicejs)
+  - [React Component](#react-component-example)
+- [Error Handling](#error-handling)
+- [Security Considerations](#security-considerations)
+- [Installation & Setup](#installation--setup)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## Overview
 Ini adalah RESTful API untuk manajemen pengguna yang dibangun dengan Laravel dan Laravel Sanctum untuk otentikasi. API menyediakan titik akhir untuk registrasi pengguna, autentikasi, dan operasi CRUD pada data pengguna.
 
